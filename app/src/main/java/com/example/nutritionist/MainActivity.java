@@ -24,11 +24,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openFoodDiary(View view) {
-        Intent intent = new Intent(this,FoodDiary.class);
-        startActivity(intent);
-    }
-
     public void openActivityDiary(View view) {
         Intent intent = new Intent(this,ActivityDiary.class);
         startActivity(intent);
