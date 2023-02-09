@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openActivityDiary(View view) {
-        Intent intent = new Intent(this,ActivityDiary.class);
+        Intent intent = new Intent(this,SportActivity.class);
         startActivity(intent);
     }
 }

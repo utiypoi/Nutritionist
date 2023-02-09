@@ -5,18 +5,332 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PersonalAccount">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <ImageButton
-            android:id="@+id/photoAccount"
+    <ImageButton
+        android:id="@+id/backActivityImageButton"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="17dp"
+        android:background="@android:color/transparent"
+        android:onClick="returnMainActivity"
+        android:src="@drawable/back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titlePersonalAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Персональная статистика"
+        android:textColor="#2D2F31"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/imtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:text="ИМТ:"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlePersonalAccount" />
+
+    <TextView
+        android:id="@+id/imt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:text="23.7"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/imtTitle"
+        app:layout_constraintTop_toBottomOf="@id/titlePersonalAccount" />
+
+    <TextView
+        android:id="@+id/mainExchangeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="Основной обмен:"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imtTitle" />
+
+    <TextView
+        android:id="@+id/mainExchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="1502 ккал"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/mainExchangeTitle"
+        app:layout_constraintTop_toBottomOf="@id/imtTitle" />
+
+    <TextView
+        android:id="@+id/powerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="Общий расход энергии:"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainExchangeTitle" />
+
+    <TextView
+        android:id="@+id/power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="2103 ккал"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/powerTitle"
+        app:layout_constraintTop_toBottomOf="@id/mainExchangeTitle" />
+
+    <TextView
+        android:id="@+id/KkTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="Целевая калорийность:"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/powerTitle" />
+
+    <TextView
+        android:id="@+id/kk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="1598 ккал"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/KkTitle"
+        app:layout_constraintTop_toBottomOf="@id/powerTitle" />
+
+    <TextView
+        android:id="@+id/macro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:text="Нормы макронутриентов:"
+        android:textColor="#2D2F31"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/KkTitle" />
+
+    <TableLayout
+        android:id="@+id/macroTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/macro">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/proteinTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Белки"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="96 г. 24%"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/fatsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Жиры"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/fats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="70 г. 39.5%"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/carbohydratesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="Углеводы"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/carbohydrates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="146 г. 36.5%"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/macroTable">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Пол"
+            android:textColor="#2D2F31"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/genderRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioManButton"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Мужской"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/radioWomanButton"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="Женский"
+                android:textColor="#2D2F31"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/ageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Возраст, лет"
+            android:textColor="#2D2F31"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ageEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:text="20" />
+
+        <TextView
+            android:id="@+id/heightTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Рост, см"
+            android:textColor="#2D2F31"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/heightSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:text="179" />
+
+        <TextView
+            android:id="@+id/weightTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Текущий вес, кг"
+            android:textColor="#2D2F31"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/weightSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:text="76" />
+
+        <TextView
+            android:id="@+id/activityTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Активность"
+            android:textColor="#2D2F31"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/selectActivityItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:entries="@array/select_activity" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activityRationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:onClick="outputAccountButton"
+        android:text="выйти"
+        android:textColor="@color/black"
+        android:theme="@style/style_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
